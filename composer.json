@@ -1,0 +1,20 @@
+{
+    "name": "onedrop/shortresourceuri",
+    "description": "Neos package for shortening published resource uris",
+    "type": "neos-package",
+    "license": "MIT",
+    "require": {
+        "neos/neos": ">=3.0 <5.0 || dev-master"
+    },
+    "authors": [
+        {
+            "name": "Hans Hoechtl",
+            "email": "hhoechtl@1drop.de"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Onedrop\\ShortResourceUri\\": "Classes"
+        }
+    }
+}

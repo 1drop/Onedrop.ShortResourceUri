@@ -1,0 +1,13 @@
+Neos:
+  Flow:
+    resource:
+      targets:
+        localWebDirectoryShortUriPersistentResourcesTarget:
+          target: 'Onedrop\ShortResourceUri\ResourceManagement\Target\FileSystemShortSymlinkTarget'
+          targetOptions:
+            baseUri: '_media/'
+            path: '%FLOW_PATH_WEB%_media/'
+            relativeSymlinks: true
+      collections:
+        persistent:
+          target: 'localWebDirectoryShortUriPersistentResourcesTarget'
