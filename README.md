@@ -3,7 +3,7 @@
 This Neos package changes the default behavior of the persistent resource 
 storage.
  
-It will publish resources with a short uri like `/media/alicecards.jpg` instead
+It will publish resources with a short uri like `/_media/alicecards.jpg` instead
 of the regular `/_Resources/Persistent/0d5f77e755f664b393b62ca51a056c06f05e83c6/alicecards.jpg`.
 
 It overrides the default publishing target for the `persistent` collection:
@@ -15,8 +15,8 @@ Neos:
         localWebDirectoryShortUriPersistentResourcesTarget:
           target: 'Onedrop\ShortResourceUri\ResourceManagement\Target\FileSystemShortSymlinkTarget'
           targetOptions:
-            baseUri: 'media/'
-            path: '%FLOW_PATH_WEB%media/'
+            baseUri: '_media/'
+            path: '%FLOW_PATH_WEB%_media/'
       collections:
         persistent:
           target: 'localWebDirectoryShortUriPersistentResourcesTarget'
