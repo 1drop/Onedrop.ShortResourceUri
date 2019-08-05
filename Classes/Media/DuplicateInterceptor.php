@@ -10,7 +10,6 @@ namespace Onedrop\ShortResourceUri\Media;
 use Neos\Error\Messages\Error;
 use Neos\Flow\Annotations as Flow;
 use Neos\Flow\Mvc\FlashMessageContainer;
-use Neos\Flow\Persistence\Exception\InvalidQueryException;
 use Neos\Media\Domain\Model\AssetInterface;
 use Neos\Media\Domain\Repository\AssetRepository;
 use Neos\Media\Domain\Service\AssetService;
@@ -37,14 +36,15 @@ class DuplicateInterceptor
      *
      * @param  AssetInterface             $asset
      * @throws DuplicateFilenameException
-     * @throws InvalidQueryException
      */
     public function checkForDuplicateFilename(AssetInterface $asset)
     {
         $newAssetFilename = $asset->getResource()->getFilename();
         /** @var AssetRepository $assetRepo */
         $assetRepo = $this->assetService->getRepository($asset);
-        if ($assetRepo->findBySearchTermOrTags($newAssetFilename)->count() > 0) {
+        $query = $assetRepo->createQuery();
+        $query->matching($query->equals('resource.filename', $newAssetFilename));
+        if ($query->execute()->count() > 0) {
             $message = new Error('File with name already exists', 1537793717);
             $this->flashMessageContainer->addMessage($message);
             throw new DuplicateFilenameException(
