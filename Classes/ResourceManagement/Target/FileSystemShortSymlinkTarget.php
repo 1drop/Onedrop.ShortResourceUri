@@ -18,7 +18,7 @@ class FileSystemShortSymlinkTarget extends FileSystemSymlinkTarget
     /**
      * {@inheritdoc}
      */
-    protected function getRelativePublicationPathAndFilename(ResourceMetaDataInterface $object)
+    protected function getRelativePublicationPathAndFilename(ResourceMetaDataInterface $object): string
     {
         if ($object->getRelativePublicationPath() !== '') {
             $pathAndFilename = $object->getRelativePublicationPath() . $object->getFilename();
