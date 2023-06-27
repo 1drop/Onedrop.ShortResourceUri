@@ -6,7 +6,7 @@ storage.
 It will publish resources with a short uri like `/_media/alicecards.jpg` instead
 of the regular `/_Resources/Persistent/0d5f77e755f664b393b62ca51a056c06f05e83c6/alicecards.jpg`.
 
-It overrides the default publishing target for the `persistent` collection:
+It overrides the default publishing target for the `persistent` collection if you add the following configuration:
 ```yaml
 Neos:
   Flow:
@@ -21,6 +21,9 @@ Neos:
         persistent:
           target: 'localWebDirectoryShortUriPersistentResourcesTarget'
 ```
+
+Since v1.2.0 this must be added manually and is no longer default included. This way it is possible to
+for example only enable this in production context.
 
 ## Preventing duplicates
 
