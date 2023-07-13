@@ -9,7 +9,7 @@ namespace Onedrop\ShortResourceUri\Media;
 
 use Neos\Error\Messages\Error;
 use Neos\Flow\Annotations as Flow;
-use Neos\Flow\Mvc\FlashMessageContainer;
+use Neos\Flow\Mvc\FlashMessage\FlashMessageContainer;
 use Neos\Media\Domain\Model\AssetInterface;
 use Neos\Media\Domain\Repository\AssetRepository;
 use Neos\Media\Domain\Service\AssetService;
